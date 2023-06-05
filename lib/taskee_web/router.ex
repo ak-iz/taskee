@@ -72,9 +72,14 @@ defmodule TaskeeWeb.Router do
       live "/projects", ProjectLive.Index, :index
       live "/projects/new", ProjectLive.Index, :new
       live "/projects/:id/edit", ProjectLive.Index, :edit
-
       live "/projects/:id", ProjectLive.Show, :show
       live "/projects/:id/show/edit", ProjectLive.Show, :edit
+
+      live "/tasks", TaskLive.Index, :index
+      live "/tasks/new", TaskLive.Index, :new
+      live "/tasks/:id/edit", TaskLive.Index, :edit
+      live "/tasks/:id", TaskLive.Show, :show
+      live "/tasks/:id/show/edit", TaskLive.Show, :edit
     end
   end
 

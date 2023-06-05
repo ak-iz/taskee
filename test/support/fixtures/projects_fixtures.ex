@@ -19,4 +19,21 @@ defmodule Taskee.ProjectsFixtures do
 
     project
   end
+
+  @doc """
+  Generate a task.
+  """
+  def task_fixture(attrs \\ %{}) do
+    {:ok, task} =
+      attrs
+      |> Enum.into(%{
+        description: "some description",
+        due_date: ~U[2023-06-04 12:07:00Z],
+        is_completed: true,
+        name: "some name"
+      })
+      |> Taskee.Projects.create_task()
+
+    task
+  end
 end
