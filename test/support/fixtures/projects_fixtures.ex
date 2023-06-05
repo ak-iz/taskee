@@ -36,4 +36,18 @@ defmodule Taskee.ProjectsFixtures do
 
     task
   end
+
+  @doc """
+  Generate a comment.
+  """
+  def comment_fixture(attrs \\ %{}) do
+    {:ok, comment} =
+      attrs
+      |> Enum.into(%{
+        text: "some text"
+      })
+      |> Taskee.Projects.create_comment()
+
+    comment
+  end
 end
