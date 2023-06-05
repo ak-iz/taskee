@@ -14,7 +14,7 @@ defmodule Taskee.Projects.Project do
   @doc false
   def changeset(project, attrs) do
     project
-    |> cast(attrs, [:name, :description, :due_date])
-    |> validate_required([:name, :description, :due_date])
+    |> cast(attrs, [:name, :description, :due_date, :owner_id])
+    |> validate_required([:name, :description, :due_date, :owner_id])
   end
 end

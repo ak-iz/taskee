@@ -18,12 +18,14 @@ defmodule TaskeeWeb.ProjectLive.Index do
     socket
     |> assign(:page_title, "Edit Project")
     |> assign(:project, Projects.get_project!(id))
+    |> assign(:current_user_id, socket.assigns.current_user.id)
   end
 
   defp apply_action(socket, :new, _params) do
     socket
     |> assign(:page_title, "New Project")
     |> assign(:project, %Project{})
+    |> assign(:current_user_id, socket.assigns.current_user.id)
   end
 
   defp apply_action(socket, :index, _params) do
