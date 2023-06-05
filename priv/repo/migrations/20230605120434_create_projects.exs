@@ -6,11 +6,11 @@ defmodule Taskee.Repo.Migrations.CreateProjects do
       add :name, :string
       add :description, :string
       add :due_date, :utc_datetime
-      add :owner_id, references(:users, on_delete: :nothing)
+      add :owner, references(:users, on_delete: :nothing)
 
       timestamps()
     end
 
-    create index(:projects, [:owner_id])
+    create index(:projects, [:owner])
   end
 end
