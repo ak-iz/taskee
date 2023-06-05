@@ -21,7 +21,7 @@ defmodule TaskeeWeb.ProjectLive.FormComponent do
       >
         <.input field={@form[:name]} type="text" label="Name" />
         <.input field={@form[:description]} type="text" label="Description" />
-        <.input field={@form[:due_date]} type="datetime-local" label="Due date" />
+        <.input field={@form[:due_date]} type="date" label="Due date" />
         <.input field={@form[:owner_id]} type="hidden" value={@current_user_id} />
         <:actions>
           <.button phx-disable-with="Saving...">Save Project</.button>
