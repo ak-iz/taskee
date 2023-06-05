@@ -7,8 +7,8 @@ defmodule Taskee.Projects.Task do
     field :due_date, :utc_datetime
     field :is_completed, :boolean, default: false
     field :name, :string
-    field :user, :id
-    field :project, :id
+    belongs_to :user, Taskee.Accounts.User
+    belongs_to :project, Taskee.Projects.Project
 
     timestamps()
   end
@@ -17,6 +17,6 @@ defmodule Taskee.Projects.Task do
   def changeset(task, attrs) do
     task
     |> cast(attrs, [:name, :description, :due_date, :is_completed])
-    |> validate_required([:name, :description, :due_date, :is_completed])
+    |> validate_required([:name, :description, :due_date])
   end
 end

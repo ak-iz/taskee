@@ -6,7 +6,7 @@ defmodule Taskee.Projects.Project do
     field :description, :string
     field :due_date, :utc_datetime
     field :name, :string
-    field :owner, :id
+    belongs_to :owner, Taskee.Accounts.User
 
     timestamps()
   end

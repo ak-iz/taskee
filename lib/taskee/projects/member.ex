@@ -4,8 +4,8 @@ defmodule Taskee.Projects.Member do
 
   schema "members" do
     field :role_id, :integer
-    field :user, :id
-    field :project, :id
+    belongs_to :user, Taskee.Accounts.User
+    belongs_to :project, Taskee.Projects.Project
 
     timestamps()
   end

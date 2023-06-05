@@ -4,8 +4,8 @@ defmodule Taskee.Projects.Comment do
 
   schema "comments" do
     field :text, :string
-    field :user, :id
-    field :task, :id
+    belongs_to :user, Taskee.Accounts.User
+    belongs_to :task, Taskee.Projects.Task
 
     timestamps()
   end
