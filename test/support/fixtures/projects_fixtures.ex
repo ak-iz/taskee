@@ -50,4 +50,18 @@ defmodule Taskee.ProjectsFixtures do
 
     comment
   end
+
+  @doc """
+  Generate a member.
+  """
+  def member_fixture(attrs \\ %{}) do
+    {:ok, member} =
+      attrs
+      |> Enum.into(%{
+        role_id: 42
+      })
+      |> Taskee.Projects.create_member()
+
+    member
+  end
 end

@@ -174,4 +174,58 @@ defmodule Taskee.ProjectsTest do
       assert %Ecto.Changeset{} = Projects.change_comment(comment)
     end
   end
+
+  describe "members" do
+    alias Taskee.Projects.Member
+
+    import Taskee.ProjectsFixtures
+
+    @invalid_attrs %{role_id: nil}
+
+    test "list_members/0 returns all members" do
+      member = member_fixture()
+      assert Projects.list_members() == [member]
+    end
+
+    test "get_member!/1 returns the member with given id" do
+      member = member_fixture()
+      assert Projects.get_member!(member.id) == member
+    end
+
+    test "create_member/1 with valid data creates a member" do
+      valid_attrs = %{role_id: 42}
+
+      assert {:ok, %Member{} = member} = Projects.create_member(valid_attrs)
+      assert member.role_id == 42
+    end
+
+    test "create_member/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Projects.create_member(@invalid_attrs)
+    end
+
+    test "update_member/2 with valid data updates the member" do
+      member = member_fixture()
+      update_attrs = %{role_id: 43}
+
+      assert {:ok, %Member{} = member} = Projects.update_member(member, update_attrs)
+      assert member.role_id == 43
+    end
+
+    test "update_member/2 with invalid data returns error changeset" do
+      member = member_fixture()
+      assert {:error, %Ecto.Changeset{}} = Projects.update_member(member, @invalid_attrs)
+      assert member == Projects.get_member!(member.id)
+    end
+
+    test "delete_member/1 deletes the member" do
+      member = member_fixture()
+      assert {:ok, %Member{}} = Projects.delete_member(member)
+      assert_raise Ecto.NoResultsError, fn -> Projects.get_member!(member.id) end
+    end
+
+    test "change_member/1 returns a member changeset" do
+      member = member_fixture()
+      assert %Ecto.Changeset{} = Projects.change_member(member)
+    end
+  end
 end
