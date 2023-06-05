@@ -4,7 +4,7 @@ defmodule Taskee.Projects.Task do
 
   schema "tasks" do
     field :description, :string
-    field :due_date, :utc_datetime
+    field :due_date, :date
     field :is_completed, :boolean, default: false
     field :name, :string
     belongs_to :user, Taskee.Accounts.User

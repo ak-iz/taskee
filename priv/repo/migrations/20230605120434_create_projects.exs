@@ -5,7 +5,7 @@ defmodule Taskee.Repo.Migrations.CreateProjects do
     create table(:projects) do
       add :name, :string
       add :description, :string
-      add :due_date, :utc_datetime
+      add :due_date, :date
       add :owner_id, references(:users, on_delete: :delete_all)
 
       timestamps()
