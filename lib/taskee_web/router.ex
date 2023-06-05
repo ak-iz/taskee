@@ -86,6 +86,12 @@ defmodule TaskeeWeb.Router do
       live "/comments/:id/edit", CommentLive.Index, :edit
       live "/comments/:id", CommentLive.Show, :show
       live "/comments/:id/show/edit", CommentLive.Show, :edit
+
+      live "/members", MemberLive.Index, :index
+      live "/members/new", MemberLive.Index, :new
+      live "/members/:id/edit", MemberLive.Index, :edit
+      live "/members/:id", MemberLive.Show, :show
+      live "/members/:id/show/edit", MemberLive.Show, :edit
     end
   end
 
