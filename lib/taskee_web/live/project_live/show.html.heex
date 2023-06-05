@@ -11,7 +11,7 @@
 <.list>
   <:item title="Name"><%= @project.name %></:item>
   <:item title="Description"><%= @project.description %></:item>
-  <:item title="Due date"><%= DateTime.to_date(@project.due_date) %></:item>
+  <:item title="Due date"><%= @project.due_date %></:item>
 </.list>
 
 <.back navigate={~p"/projects"}>Back to projects</.back>
