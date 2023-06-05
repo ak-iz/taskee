@@ -6,7 +6,7 @@ defmodule Taskee.Repo.Migrations.CreateProjects do
       add :name, :string
       add :description, :string
       add :due_date, :utc_datetime
-      add :owner, references(:users, on_delete: :nothing)
+      add :owner, references(:users, on_delete: :delete_all)
 
       timestamps()
     end

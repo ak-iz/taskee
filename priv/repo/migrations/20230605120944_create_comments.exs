@@ -4,8 +4,8 @@ defmodule Taskee.Repo.Migrations.CreateComments do
   def change do
     create table(:comments) do
       add :text, :string
-      add :user, references(:user, on_delete: :nothing)
-      add :task, references(:tasks, on_delete: :nothing)
+      add :user, references(:user, on_delete: :delete_all)
+      add :task, references(:tasks, on_delete: :delete_all)
 
       timestamps()
     end
