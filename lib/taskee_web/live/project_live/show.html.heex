@@ -1,3 +1,5 @@
+<.back navigate={~p"/projects"}>Back to projects</.back>
+
 <.header>
   Project <%= @project.id %>
   <:subtitle>This is a project record from your database.</:subtitle>
@@ -13,8 +15,6 @@
   <:item title="Description"><%= @project.description %></:item>
   <:item title="Due date"><%= @project.due_date %></:item>
 </.list>
-
-<.back navigate={~p"/projects"}>Back to projects</.back>
 
 <.modal :if={@live_action == :edit} id="project-modal" show on_cancel={JS.patch(~p"/projects/#{@project}")}>
   <.live_component
